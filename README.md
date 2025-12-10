@@ -13,28 +13,28 @@ A fully local, privacy-focused dictation and text-cleanup web application powere
 ## Project Structure
 project/ <br>
 │── app/ <br>
-│   ├── api/
-│   │   └── app.py            # FastAPI backend endpoints
-│   ├── services/
-│   │   ├── audio_utils.py    # Handles audio conversion
-│   │   ├── math.py           # Used to create math equations
-│   │   └── whisper.py        # Loads Whisper model and transcribes audio
-│   ├── static/
-│   │   ├── css/
-│   │   │   └── styles.css    # Frontend styling
-│   │   ├── js/
-│   │   │   ├── main.js       # Frontend JS for main page
-│   │   │   └── paper.js      # Frontend JS for paper template page
-│   │   └── sounds/           # Audio assets for frontend
-│   ├── templates/
-│   │   ├── clean.html
-│   │   ├── dictation.html
-│   │   ├── index.html
-│   │   ├── paper.html
-│   │   └── formats/          # JSON files to dynamically create paper sections
-│   └── tests/                # Unit and integration tests
-│── requirements.txt           # Python dependencies
-│── README.md                  # Project documentation
+│   ├── api/ <br>
+│   │   └── app.py            # FastAPI backend endpoints <br>
+│   ├── services/ <br>
+│   │   ├── audio_utils.py    # Handles audio conversion <br>
+│   │   ├── math.py           # Used to create math equations <br>
+│   │   └── whisper.py        # Loads Whisper model and transcribes audio <br>
+│   ├── static/ <br>
+│   │   ├── css/ <br>
+│   │   │   └── styles.css    # Frontend styling <br>
+│   │   ├── js/ <br>
+│   │   │   ├── main.js       # Frontend JS for main page <br>
+│   │   │   └── paper.js      # Frontend JS for paper template page <br>
+│   │   └── sounds/           # Audio assets for frontend <br>
+│   ├── templates/ <br>
+│   │   ├── clean.html <br>
+│   │   ├── dictation.html <br>
+│   │   ├── index.html <br>
+│   │   ├── paper.html <br>
+│   │   └── formats/          # JSON files to dynamically create paper sections <br>
+│   └── tests/                # Unit and integration tests <br>
+│── requirements.txt           # Python dependencies <br>
+│── README.md                  # Project documentation <br>
 
 ## Installation
 1. **Clone project:**  
