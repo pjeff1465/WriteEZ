@@ -1,22 +1,63 @@
 # Dictation web app 
+A fully local, privacy-focused dictation and text-cleanup web application powered by Whisper (local speech-to-text), FastAPI, and Ollama (local LLMs like Mistral). The app allows users to record audio, transribe it, clean up text, and download results as a PDF, all without sending data to external servers. 
 
-pip freeze > requirements.txt (to add packages to requirements)
+## Features
+- Local speech-to-text using Whisper
+- Optional text cleanup using Mistral via Ollama
+- Privacy-first (audio never leaves your machine)
+- Option to parse audio into template of chosen paper format
+- PDF generation using FPDF 
+- Basic UI with dictation controls
+- Expandable architecture for accessibility
 
-## To run web app locally:
+## Project Structure
+project/
+│── app/
+│   ├── api/
+│   │   └── app.py            # FastAPI backend endpoints
+│   ├── services/
+│   │   ├── audio_utils.py    # Handles audio conversion
+│   │   ├── math.py           # Used to create math equations
+│   │   └── whisper.py        # Loads Whisper model and transcribes audio
+│   ├── static/
+│   │   ├── css/
+│   │   │   └── styles.css    # Frontend styling
+│   │   ├── js/
+│   │   │   ├── main.js       # Frontend JS for main page
+│   │   │   └── paper.js      # Frontend JS for paper template page
+│   │   └── sounds/           # Audio assets for frontend
+│   ├── templates/
+│   │   ├── clean.html
+│   │   ├── dictation.html
+│   │   ├── index.html
+│   │   ├── paper.html
+│   │   └── formats/          # JSON files to dynamically create paper sections
+│   └── tests/                # Unit and integration tests
+│── requirements.txt           # Python dependencies
+│── README.md                  # Project documentation
 
+## Installation
 1. **Clone project:**  
     'git clone <repo_url>'
+    'cd <project_folder>'
 
 2. **Install dependencies:**  
     'pip install -r requirements.txt'
+If you add new packages during development:
+    'pip freeze > requirements.txt'
 
-3. **Start server:**
-    * In one terminal start ollama REST API:
-        'ollama serve'
-    * In another terminal, start backend API (FastAPI + Whisper):  
-            'uvicorn app.main:app --reload'  
-            (This will run backend + frontend on http://localhost:8000)
-    * Visit 'http://localhost:8000' to test web app! 
+3. **Running the Application Locally**
+    1. In one terminal start ollama REST API:
+        * Ollama must be running before the backend can communicate with Mistral
+            'ollama serve'
+        * This exposes a local REST API at:
+            'http://localhost:11434'
+    2. Start the backend (FastAPI + Whisper)
+        * In another terminal, start backend API (FastAPI + Whisper):  
+                'uvicorn app.main:app --reload'
+          The backend automatically serves the frontend as well.
+        * App runs at port 8000
+        * Visit 'http://localhost:8000' to test web app! 
     * **Optional:** To view frontend files seperately run: 
             'python3 -m http.server 5500'  
         * Then visit http://localhost:5500 
