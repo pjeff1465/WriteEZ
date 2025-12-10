@@ -11,8 +11,8 @@ A fully local, privacy-focused dictation and text-cleanup web application powere
 - Expandable architecture for accessibility
 
 ## Project Structure
-project/
-│── app/
+project/ <br>
+│── app/ <br>
 │   ├── api/
 │   │   └── app.py            # FastAPI backend endpoints
 │   ├── services/
